@@ -9,6 +9,7 @@ TIME_OUT = 80
 
 
 def go_through_tag_posts(tag):
+    print("Running...")
     PATH = "/Users/paulrodriguez/Downloads/chromedriver"
     driver = webdriver.Chrome(PATH)
     driver.get("https://www.instagram.com/accounts/login/")
@@ -56,5 +57,9 @@ def go_through_tag_posts(tag):
             print("Timed out looking for: Next Post Button.")
         driver.find_element(by=By.XPATH, value=next_button).click()
 
-        with open('accounts_to_dm.txt', 'a') as file:
+        with open('accounts.txt', 'a') as file:
             file.write(post_username + "\n")
+
+
+tag = input("Enter Desired Hashtag: ")
+go_through_tag_posts(tag)
